@@ -1,12 +1,15 @@
 require 'bundler/setup'
 require 'sinatra'
+require_relative 'hipster'
+require_relative 'samuel'
+require_relative 'standard'
 
 get "/" do
   "Hello World!"
 end
 
 get "/lorem/:lipsum/?:num?" do
-  %w(standard hipster samuel).include? params[:lipsum]
+  %w(standard sipster samuel).include? params[:lipsum]
     Object.const_get(params[:lipsum].capitalize).call(params[:num])
 end
 
